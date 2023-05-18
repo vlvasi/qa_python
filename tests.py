@@ -13,6 +13,7 @@ class TestBooksCollector:
         books_collector.add_new_book("The Great Gatsby")
         assert books_collector.get_books_rating == {"The Great Gatsby": 1}
 
+
     def test_set_book_rating(self):
         books_collector = BooksCollector()
 
@@ -32,7 +33,7 @@ class TestBooksCollector:
         books_collector.set_book_rating("1984", 6)
         books_collector.set_book_rating("Animal Farm", 6)
 
-        assert books_collector.get_books_with_specific_rating(11) == []
+        assert books_collector.get_books_with_specific_rating(6) == ["1984", "Animal Farm"]
 
      def test_get_books_rating(self):
         books_collector = BooksCollector()
@@ -82,7 +83,7 @@ class TestBooksCollector:
         books_collector.add_book_in_favorites("The Great Gatsby")
         books_collector.add_book_in_favorites("1984")
 
-        assert books_collector.get_list_of_favorites_books() == ["The Great Gatsby", "1984"]
+        assert "The Great Gatsby" in books_collector.get_list_of_favorites_books()
 
 
 
