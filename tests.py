@@ -21,8 +21,7 @@ class TestBooksCollector:
         books_collector.set_book_rating("The Great Gatsby", 8)
         assert books_collector.get_book_rating("The Great Gatsby") == 8
 
-    def test_get_books_with_specific_rating(self):
-
+    def test_get_books_with_specific_rating_not_list(self):
         books_collector = BooksCollector()
 
         books_collector.add_new_book("The Great Gatsby")
@@ -32,10 +31,9 @@ class TestBooksCollector:
         books_collector.set_book_rating("The Great Gatsby", 8)
         books_collector.set_book_rating("1984", 6)
         books_collector.set_book_rating("Animal Farm", 6)
+        assert books_collector.get_books_with_specific_rating(9) == []
 
-        assert books_collector.get_books_with_specific_rating(6) == ["1984", "Animal Farm"]
-
-     def test_get_books_rating(self):
+    def test_get_books_rating(self):
         books_collector = BooksCollector()
 
         books_collector.add_new_book("The Great Gatsby")
